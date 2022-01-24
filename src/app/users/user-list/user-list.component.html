@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-12">
+      <app-input-search (searchKeyWord)="search($event)"></app-input-search>
+      <button class="btn btn-success" routerLink="create">Add new</button>
+      <table class="table">
+        <tr>
+          <td>STT</td>
+          <td>Name</td>
+          <td>Email</td>
+          <td></td>
+        </tr>
+        <tr *ngFor="let user of userFilter; let i = index">
+          <td>{{i + 1}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.email}}</td>
+          <td>
+            <button class="btn btn-success" routerLink="{{user.id}}/detail">Detail</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-12 col-md-4">
+      <app-user-detail></app-user-detail>
+    </div>
+  </div>
+</div>
